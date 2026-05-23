@@ -1,0 +1,110 @@
+@OlliApi_HostAddress = http://localhost:5127
+
+GET {{OlliApi_HostAddress}}/pets
+
+###
+GET {{OlliApi_HostAddress}}/pets/1
+
+###
+GET {{OlliApi_HostAddress}}/pets/1/historico
+
+###
+GET {{OlliApi_HostAddress}}/pets/1/alertas
+
+###
+GET {{OlliApi_HostAddress}}/pets/1/recomendacao-ia
+
+###
+POST {{OlliApi_HostAddress}}/tutores
+Content-Type: application/json
+IdempotencyKey: tutor-001
+
+{
+  "nome": "Ana Souza",
+  "email": "ana@email.com",
+  "telefone": "+55 11 98888-0000"
+}
+
+###
+POST {{OlliApi_HostAddress}}/pets
+Content-Type: application/json
+IdempotencyKey: pet-001
+
+{
+  "idTutor": 1,
+  "nome": "Nina",
+  "especie": "Gato",
+  "raca": "SRD",
+  "dataNascimento": "2021-03-12T00:00:00",
+  "pesoKg": 4.2,
+  "scoreSaude": 88,
+  "observacoes": "Pet castrada e ativa."
+}
+
+###
+POST {{OlliApi_HostAddress}}/pets/1/historico
+Content-Type: application/json
+IdempotencyKey: historico-001
+
+{
+  "tipo": "Consulta",
+  "titulo": "Consulta preventiva",
+  "descricao": "Consulta de rotina com avaliacao geral.",
+  "dataEvento": "2026-05-18T00:00:00",
+  "nomeVeterinario": "Dra. Clyvo",
+  "precisaRetorno": true,
+  "dataRetornoSugerida": "2026-06-18T00:00:00"
+}
+
+###
+GET {{OlliApi_HostAddress}}/pets/1/historico/1
+
+###
+PUT {{OlliApi_HostAddress}}/pets/1/historico/1
+Content-Type: application/json
+
+{
+  "tipo": "Consulta",
+  "titulo": "Consulta preventiva atualizada",
+  "descricao": "Consulta revisada com orientacao de acompanhamento.",
+  "dataEvento": "2026-05-18T00:00:00",
+  "nomeVeterinario": "Dra. Clyvo",
+  "precisaRetorno": false,
+  "dataRetornoSugerida": null
+}
+
+###
+DELETE {{OlliApi_HostAddress}}/pets/1/historico/1
+
+###
+POST {{OlliApi_HostAddress}}/pets/1/alertas
+Content-Type: application/json
+IdempotencyKey: alerta-001
+
+{
+  "tipo": "Vacina",
+  "titulo": "Reforco de vacina",
+  "descricao": "Verificar carteira de vacinas e agendar reforco.",
+  "dataPrevista": "2026-06-30T00:00:00",
+  "status": "Pendente",
+  "recomendacaoIa": "Enviar lembrete ao tutor uma semana antes."
+}
+
+###
+GET {{OlliApi_HostAddress}}/pets/1/alertas/1
+
+###
+PUT {{OlliApi_HostAddress}}/pets/1/alertas/1
+Content-Type: application/json
+
+{
+  "tipo": "Vacina",
+  "titulo": "Reforco de vacina atualizado",
+  "descricao": "Agendar reforco e confirmar carteira de vacinas.",
+  "dataPrevista": "2026-06-30T00:00:00",
+  "status": "Concluido",
+  "recomendacaoIa": "Registrar comprovante da vacina no historico."
+}
+
+###
+DELETE {{OlliApi_HostAddress}}/pets/1/alertas/1
