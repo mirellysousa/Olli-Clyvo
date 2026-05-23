@@ -2,7 +2,7 @@
 
 API em .NET para o Challenge Clyvo VET.
 
-**Repositório:** https://github.com/mirellysousa/challenge_clyvo_dotnet
+**Repositório:** https://github.com/mirellysousa/Olli-Clyvo
 
 A Olli e uma plataforma de acompanhamento preventivo da saude pet. O MVP conecta tutor, pet e clinica veterinaria por meio de cadastro, historico clinico, alertas preventivos e recomendacao simulada de IA.
 
